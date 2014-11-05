@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#uninstall powerline-shell
+rm -rf /usr/local/Cellar/powerline-shell
+
+#setting bash_profile
+rm -rf ./powerline-shell.py
+
+#finish
+echo ""
+echo "----------------------------------"
+echo ""
+echo "Uninstall finished successfully!"
+echo ""
+echo "Please follow settings."
+echo "1. Open ~/.bash_profile with your text editor.".
+echo "2. Remove lines between #power-shell comments."
+echo "3. Restart the terminal client."
+echo ""

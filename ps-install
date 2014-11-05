@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#install patched font
+cd /usr/local/Cellar
+git clone https://github.com/Lokaltog/powerline-fonts
+echo "Install fonts. Please input your password."
+sudo mv ./powerline-fonts/SourceCodePro/Sauce\ Code\ Powerline\ Light.otf /Library/Fonts/Sauce\ Code\ Powerline\ Light.otf
+sudo rm -rf ./powerline-fonts
+
+#install powerline-shell
+cd /usr/local/Cellar
+git clone https://github.com/milkbikis/powerline-shell
+cd ./powerline-shell
+./install.py
+
+#setting bash_profile
+cd ~
+rm -rf ./powerline-shell.py
+ln -s /usr/local/Cellar/powerline-shell/powerline-shell.py ./powerline-shell.py
+echo -e '\n\n#power-shell\nfunction _update_ps1() {\n    export PS1="$(~/powerline-shell.py $? 2> /dev/null)"\n}\nexport PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"\n#power-shell\n\n' >> ~/.bash_profile
+
+#finish
+source ~/.bash_profile
+echo ""
+echo "----------------------------------"
+echo ""
+echo "Install finished successfully!"
+echo ""
+echo "Please follow settings."
+echo "1. The font of the terminal client to 'Source Code Pro'".
+echo "2. Restart the terminal client."
+echo ""
