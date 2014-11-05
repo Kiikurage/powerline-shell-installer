@@ -1,21 +1,29 @@
 {
-  "name": "ps-installer",
-  "version": "1.0.0",
-  "description": "isntall/uninstall power-shell",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bin": {
-    "ps-install": "bin/ps-install",
-    "ps-uninstall": "bin/ps-uninstall"
-  },
-  "author": {
-    "name": "Yuichiro Kikrua",
-    "url": "y.kikrua@gmail.com"
-  },
-  "license": "MIT",
-  "readme": "ERROR: No README data found!",
-  "_id": "ps-installer@1.0.0",
-  "_shasum": "0eb0465c33b32f6db23a0ef0136713cc8ac5371e",
-  "_from": "ps-installer@"
+    "name": "ps-installer",
+    "version": "1.0.3",
+    "description": "isntall/uninstall powerline-shell",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "ps-install": "bin/ps-install",
+        "ps-uninstall": "bin/ps-uninstall"
+    },
+    "author": "Yuichiro Kikrua (y.kikrua@gmail.com)",
+    "git": "https://github.com/kikura-yuichiro",
+    "license": "MIT",
+    "_shasum": "0eb0465c33b32f6db23a0ef0136713cc8ac5371e",
+    "_from": "ps-installer@",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kikura-yuichiro/power-shell-installer.git"
+    },
+    "keywords": [
+        "powerline-shell"
+    ],
+    "bugs": {
+        "url": "https://github.com/kikura-yuichiro/power-shell-installer/issues"
+    },
+    "homepage": "https://github.com/kikura-yuichiro/power-shell-installer"
 }
