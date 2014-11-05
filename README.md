@@ -1,4 +1,4 @@
-#power-shell-installer
+#powerline-shell-installer
 
 ##usage
 
