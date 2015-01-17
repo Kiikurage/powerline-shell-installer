@@ -9,7 +9,10 @@ sudo rm -rf ./powerline-fonts
 
 ## install patched Menlo
 git clone https://github.com/abertsch/Menlo-for-Powerline
-sudo mv ./*.ttf /Library/Fonts/
+sudo mv ./Menlo-for-Powerline/Menlo\ Bold\ for\ Powerline.ttf /Library/Fonts/
+sudo mv ./Menlo-for-Powerline/Menlo\ Bold\ Italic\ for\ Powerline.ttf /Library/Fonts/
+sudo mv ./Menlo-for-Powerline/Menlo\ for\ Powerline.ttf /Library/Fonts/
+sudo mv ./Menlo-for-Powerline/Menlo Italic\ for\ Powerline.ttf /Library/Fonts/
 sudo rm -rf ./Menlo-for-Powerline
 
 #install powerline-shell
