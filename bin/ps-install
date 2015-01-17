@@ -7,6 +7,11 @@ echo "Install fonts. Please input your password."
 sudo mv ./powerline-fonts/SourceCodePro/Sauce\ Code\ Powerline\ Light.otf /Library/Fonts/Sauce\ Code\ Powerline\ Light.otf
 sudo rm -rf ./powerline-fonts
 
+## install patched Menlo
+git clone https://github.com/abertsch/Menlo-for-Powerline
+sudo mv ./*.ttf /Library/Fonts/
+sudo rm -rf ./Menlo-for-Powerline
+
 #install powerline-shell
 cd /usr/local/Cellar
 git clone https://github.com/milkbikis/powerline-shell
