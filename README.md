@@ -16,6 +16,7 @@ for git
 ```bash
 git clone https://github.com/temperman/powerline-shell-installer
 ./powerline-shell-installer/bin/ps-install
+```
 
 ### uninstall
 run bin/ps-uninstall
