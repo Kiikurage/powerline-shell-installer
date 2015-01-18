@@ -3,7 +3,6 @@
 #uninstall powerline-shell
 rm -rf /usr/local/Cellar/powerline-shell
 
-#setting bash_profile
 rm -rf ./powerline-shell.py
 
 #finish

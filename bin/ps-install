@@ -1,21 +1,48 @@
 #!/bin/bash
 
-#install patched font
+###################################################
+## Installation Patched Fonts                    ##
+###################################################
+echo "Please input your password."
+sudo mkdir /usr/local/Cellar >/dev/null 2>&1
 cd /usr/local/Cellar
-git clone https://github.com/Lokaltog/powerline-fonts
-echo "Install fonts. Please input your password."
-sudo mv ./powerline-fonts/SourceCodePro/Sauce\ Code\ Powerline\ Light.otf /Library/Fonts/Sauce\ Code\ Powerline\ Light.otf
-sudo rm -rf ./powerline-fonts
 
-## install patched Menlo
-git clone https://github.com/abertsch/Menlo-for-Powerline
-sudo mv ./Menlo-for-Powerline/Menlo\ Bold\ for\ Powerline.ttf /Library/Fonts/
-sudo mv ./Menlo-for-Powerline/Menlo\ Bold\ Italic\ for\ Powerline.ttf /Library/Fonts/
-sudo mv ./Menlo-for-Powerline/Menlo\ for\ Powerline.ttf /Library/Fonts/
-sudo mv ./Menlo-for-Powerline/Menlo Italic\ for\ Powerline.ttf /Library/Fonts/
-sudo rm -rf ./Menlo-for-Powerline
+echo -e "\x1B[32m==>\x1B[m Installation Fonts"
+echo "- Source Code Pro Light"
+echo "- Menlo"
 
-#install powerline-shell
+echo -e "Do you install \"Source Code Powerline Light\"? (y/n)"
+printf "> "
+read ANSWER_SOURCE_CORE_PRO
+
+echo -e "Do you install \"Menlo for powerline\"? (y/n)"
+printf "> "
+read ANSWER_MENLO
+
+# Installation Sauce Code Powerline Light
+if [ "$ANSWER_SOURCE_CORE_PRO" = "y" ]; then
+	echo -e "\x1B[34m==>\x1B[m Installing Source Code Pro"
+	git clone https://github.com/Lokaltog/powerline-fonts
+	sudo mv ./powerline-fonts/SourceCodePro/Sauce\ Code\ Powerline\ Light.otf /Library/Fonts/Sauce\ Code\ Powerline\ Light.otf
+	sudo rm -rf ./powerline-fonts
+fi
+
+# Installation patched Menlo
+if [ "$ANSWER_MENLO" = "y" ]; then
+echo -e "\x1B[34m==>\x1B[m Installing Menlo"
+	git clone https://github.com/abertsch/Menlo-for-Powerline
+	sudo mv ./Menlo-for-Powerline/Menlo\ Bold\ for\ Powerline.ttf /Library/Fonts/
+	sudo mv ./Menlo-for-Powerline/Menlo\ Bold\ Italic\ for\ Powerline.ttf /Library/Fonts/
+	sudo mv ./Menlo-for-Powerline/Menlo\ for\ Powerline.ttf /Library/Fonts/
+	sudo mv ./Menlo-for-Powerline/Menlo\ Italic\ for\ Powerline.ttf /Library/Fonts/
+	sudo rm -rf ./Menlo-for-Powerline
+fi
+
+###################################################
+## Installation powerline-shell                  ##
+###################################################
+echo -e "\x1B[32m==>\x1B[m Installation Powerline-shell"
+echo -e "\x1B[34m==>\x1B[m Installing powerline-shell"
 cd /usr/local/Cellar
 git clone https://github.com/milkbikis/powerline-shell
 cd ./powerline-shell
@@ -25,16 +52,30 @@ cd ./powerline-shell
 cd ~
 rm -rf ./powerline-shell.py
 ln -s /usr/local/Cellar/powerline-shell/powerline-shell.py ./powerline-shell.py
-echo -e '\n\n#power-shell\nfunction _update_ps1() {\n    export PS1="$(~/powerline-shell.py $? 2> /dev/null)"\n}\nexport PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"\n#power-shell\n\n' >> ~/.bash_profile
+COMMENTS=`grep -c "#power-shell" ~/.bash_profile`
+if [[ COMMENTS -eq 0 ]]; then
+
+cat <<EOT >> ~/.bash_profile
+
+#power-shell
+function _update_ps1() {
+    export PS1="$(~/powerline-shell.py $? 2> /dev/null)"
+}
+export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#power-shell
+
+EOT
+fi
 
 #finish
 source ~/.bash_profile
 echo ""
-echo "----------------------------------"
-echo ""
+echo -e "\x1B[32m==>\x1B[m Summery"
 echo "Install finished successfully!"
 echo ""
+echo "----------------------------------"
 echo "Please follow settings."
-echo "1. The font of the terminal client to 'Source Code Pro'".
+echo "1. Change the font of the terminal client to the patched font."
+echo "     The patched fonts have 'for powerline' in the end of a word."
 echo "2. Restart the terminal client."
 echo ""
