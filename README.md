@@ -6,7 +6,7 @@
 
 2 ways.
 
-for npm(Node.js package module)
+for npm(Node.js package manager)
 ```bash
 sudo npm install -g ps-installer
 ps-install
