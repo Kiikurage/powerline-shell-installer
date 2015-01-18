@@ -1,6 +1,6 @@
 {
     "name": "ps-installer",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "isntall/uninstall powerline-shell",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
